@@ -1,4 +1,24 @@
 import { useEffect, useState } from 'react'
+import {
+  FiActivity,
+  FiAward,
+  FiBookOpen,
+  FiBriefcase,
+  FiCode,
+  FiCompass,
+  FiCpu,
+  FiFlag,
+  FiGithub,
+  FiLayers,
+  FiLinkedin,
+  FiMail,
+  FiMap,
+  FiSettings,
+  FiShield,
+  FiStar,
+  FiTarget,
+  FiUsers,
+} from 'react-icons/fi'
 import './App.css'
 
 const impactStats = [
@@ -16,14 +36,17 @@ const skillGroups = {
 
 const strengths = [
   {
+    icon: FiTarget,
     title: 'Product-Driven Engineering',
     text: 'I map business goals to technical architecture and ship features that are measurable, maintainable, and fast to iterate.',
   },
   {
+    icon: FiShield,
     title: 'Reliable Platform Delivery',
     text: 'From CI/CD to secure SDLC and fault tolerance, I focus on resilient systems that stay stable under pressure.',
   },
   {
+    icon: FiUsers,
     title: 'Leadership & Mentorship',
     text: 'I mentor teams, raise code quality standards, and create execution rhythm that improves delivery consistency.',
   },
@@ -35,6 +58,7 @@ const experience = [
   {
     role: 'Tech Lead',
     company: 'Tech Mahindra',
+    logo: '/company-techmahindra.svg',
     period: 'Jun 2022 - Present',
     highlights: [
       'Led and mentored a cross-functional team of 7 engineers and improved delivery velocity by 150%.',
@@ -46,6 +70,7 @@ const experience = [
   {
     role: 'Senior Engineer',
     company: 'Brillio Technologies Pvt Ltd',
+    logo: '/company-brillio.svg',
     period: 'May 2021 - Jun 2022',
     highlights: [
       'Strengthened deployment security validations for enterprise initiatives.',
@@ -57,6 +82,7 @@ const experience = [
   {
     role: 'Software Engineer',
     company: 'Saltside Technologies India Pvt Ltd',
+    logo: '/company-saltside.svg',
     period: 'Feb 2021 - May 2021',
     highlights: [
       'Delivered full-stack features for personalized discovery experiences that increased engagement.',
@@ -67,6 +93,7 @@ const experience = [
   {
     role: 'Software Engineer',
     company: 'Advanced Business and Health Care Solution Pvt Ltd',
+    logo: '/company-abhcs.svg',
     period: 'Feb 2019 - Feb 2021',
     highlights: [
       'Led migration from desktop systems to web applications with microservice-oriented architecture.',
@@ -77,6 +104,7 @@ const experience = [
   {
     role: 'Web Developer',
     company: 'Semonics Technologies Pvt Ltd',
+    logo: '/company-semonics.svg',
     period: 'Jan 2018 - Dec 2018',
     highlights: [
       'Delivered secure React e-commerce UI integrated with Node/Express services.',
@@ -86,6 +114,7 @@ const experience = [
   {
     role: 'Software Engineer Trainee',
     company: 'Percoyo Pvt Ltd',
+    logo: '/company-percoyo.svg',
     period: 'Jul 2017 - Dec 2017',
     highlights: [
       'Used CRM systems to improve responsiveness and customer interaction tracking.',
@@ -126,11 +155,87 @@ const featuredProjects = [
 ]
 
 const certifications = [
-  'Front-end Development with React (Coursera)',
-  'Interactivity with JavaScript (Coursera)',
-  'Advanced Styling with Responsive Design (Coursera)',
-  'The Complete Node.js Developer Course (Udemy)',
-  'The Complete SQL Master Class (Udemy)',
+  {
+    title: 'Front-end Development with React',
+    provider: 'Coursera',
+    logo: '/logo-coursera.svg',
+    link: 'https://www.coursera.org/account/accomplishments/certificate/CX6K6KQK6TK9',
+  },
+  {
+    title: 'Interactivity with JavaScript',
+    provider: 'Coursera',
+    logo: '/logo-coursera.svg',
+    link: 'https://www.coursera.org/account/accomplishments/certificate/2UR6UPYDFXLT',
+  },
+  {
+    title: 'Advanced Styling with Responsive Design',
+    provider: 'Coursera',
+    logo: '/logo-coursera.svg',
+    link: 'https://www.coursera.org/account/accomplishments/certificate/646M8Q2VFM8Q',
+  },
+  {
+    title: 'The Complete Node.js Developer Course',
+    provider: 'Udemy',
+    logo: '/logo-udemy.svg',
+    link: 'https://www.udemy.com/certificate/UC-2NLRJROI/',
+  },
+  {
+    title: 'The Complete SQL Master Class',
+    provider: 'Udemy',
+    logo: '/logo-udemy.svg',
+    link: 'https://www.udemy.com/certificate/UC-b288be6e-b63b-4d39-8e9b-340081b4eda2/',
+  },
+  {
+    title: 'Introduction to CSS3',
+    provider: 'Coursera',
+    logo: '/logo-coursera.svg',
+    link: 'https://www.coursera.org',
+  },
+  {
+    title: 'Introduction to HTML5',
+    provider: 'Coursera',
+    logo: '/logo-coursera.svg',
+    link: 'https://www.coursera.org',
+  },
+  {
+    title: 'Frontend Expert',
+    provider: 'AlgoExpert',
+    logo: '/logo-algoexpert.svg',
+    link: 'https://www.algoexpert.io',
+  },
+  {
+    title: 'JavaScript ES6 Certified',
+    provider: 'LinkedIn',
+    logo: '/logo-linkedin.svg',
+    link: 'https://www.linkedin.com/in/bickey-jaisawal-850a8782/',
+  },
+  {
+    title: 'ReactJs Quiz',
+    provider: 'LinkedIn',
+    logo: '/logo-linkedin.svg',
+    link: 'https://www.linkedin.com/in/bickey-jaisawal-850a8782/',
+  },
+]
+
+const education = [
+  {
+    title: 'Information Science and Engineering',
+    school: 'Vemana Institute of Technologies',
+    year: '2017',
+    description: 'Focused on software engineering fundamentals, data structures, databases, and web application development.',
+  },
+  {
+    title: 'Intermediate in Science',
+    school: 'Orchid Public Higher Secondary School',
+    year: '2012',
+    description: 'Built a strong base in mathematics and analytical reasoning that shaped my engineering approach.',
+  },
+  {
+    title: 'SSLC',
+    school: 'Everest English Boarding School',
+    year: '2010',
+    description: 'Established early academic discipline, communication skills, and problem-solving mindset.',
+  },
 ]
 
 const offerings = [
@@ -159,6 +264,18 @@ const navLinks = [
   { label: 'Projects', href: '#projects' },
   { label: 'Contact', href: '#contact' },
 ]
+
+const sectionIcons = {
+  about: FiCompass,
+  collaborate: FiUsers,
+  strengths: FiStar,
+  skills: FiCpu,
+  experience: FiBriefcase,
+  projects: FiLayers,
+  education: FiBookOpen,
+  certifications: FiAward,
+  contact: FiMail,
+}
 
 function App() {
   const [theme, setTheme] = useState('light')
@@ -200,6 +317,24 @@ function App() {
         <button className="theme-toggle" onClick={toggleTheme} type="button">
           {theme === 'light' ? '🌙 Dark' : '☀️ Light'}
         </button>
+        <a
+          className="social-link"
+          href="https://github.com/jvickram"
+          target="_blank"
+          rel="noreferrer"
+          aria-label="GitHub profile"
+        >
+          <FiGithub />
+        </a>
+        <a
+          className="social-link"
+          href="https://www.linkedin.com/in/bickey-jaisawal-850a8782/"
+          target="_blank"
+          rel="noreferrer"
+          aria-label="LinkedIn profile"
+        >
+          <FiLinkedin />
+        </a>
       </nav>
 
       <section className="hero">
@@ -207,6 +342,14 @@ function App() {
           <img className="profile-image" src="/MeOnBeach.jpeg" alt="Bickey Jaisawal" />
           <div>
             <p className="eyebrow">Portfolio</p>
+            <div className="hero-badges">
+              <span className="hero-badge">
+                <FiMap /> Bengaluru
+              </span>
+              <span className="hero-badge">
+                <FiFlag /> Open to Roles
+              </span>
+            </div>
             <h1>Bickey Jaisawal</h1>
             <p className="role">Tech Lead • Full Stack Engineer</p>
             <p className="summary">
@@ -228,6 +371,17 @@ function App() {
               <a className="btn btn-secondary" href="#projects">
                 View Work
               </a>
+              <a className="btn btn-secondary" href="https://github.com/jvickram" target="_blank" rel="noreferrer">
+                <FiGithub /> GitHub
+              </a>
+              <a
+                className="btn btn-secondary"
+                href="https://www.linkedin.com/in/bickey-jaisawal-850a8782/"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <FiLinkedin /> LinkedIn
+              </a>
             </div>
           </div>
         </article>
@@ -235,6 +389,7 @@ function App() {
         <article className="stats-card">
           {impactStats.map((stat) => (
             <div className="stat" key={stat.label}>
+              <FiActivity className="stat-icon" />
               <p className="stat-value">{stat.value}</p>
               <p className="stat-label">{stat.label}</p>
             </div>
@@ -245,7 +400,9 @@ function App() {
       <section className="spotlight-grid" id="about">
         <article className="card intro-band">
           <div>
-            <p className="group-title">About Me</p>
+            <p className="group-title section-kicker">
+              <sectionIcons.about /> About Me
+            </p>
             <h2>Building modern platforms that scale with confidence</h2>
             <p className="intro-text">
               With 8+ years in full-stack development and technical leadership, I specialize in transforming complex
@@ -258,6 +415,7 @@ function App() {
                 {domain}
               </span>
             ))}
+            <img className="spotlight-visual" src="/flow-architecture.svg" alt="Architecture and delivery illustration" />
           </div>
         </article>
 
@@ -272,7 +430,9 @@ function App() {
       </section>
 
       <section className="card">
-        <h2>How I Collaborate</h2>
+        <h2 className="with-icon">
+          <sectionIcons.collaborate /> How I Collaborate
+        </h2>
         <ul className="offer-list">
           {collaborationStyle.map((item) => (
             <li key={item}>{item}</li>
@@ -281,10 +441,13 @@ function App() {
       </section>
 
       <section className="card">
-        <h2>What I Bring</h2>
+        <h2 className="with-icon">
+          <sectionIcons.strengths /> What I Bring
+        </h2>
         <div className="strength-grid">
           {strengths.map((item) => (
             <article key={item.title} className="strength-card">
+              <item.icon className="strength-icon" />
               <h3>{item.title}</h3>
               <p>{item.text}</p>
             </article>
@@ -293,7 +456,9 @@ function App() {
       </section>
 
       <section className="card">
-        <h2>How I Can Help</h2>
+        <h2 className="with-icon">
+          <FiSettings /> How I Can Help
+        </h2>
         <ul className="offer-list">
           {offerings.map((item) => (
             <li key={item}>{item}</li>
@@ -302,7 +467,9 @@ function App() {
       </section>
 
       <section className="card" id="skills">
-        <h2>Tech Stack & Capabilities</h2>
+        <h2 className="with-icon">
+          <sectionIcons.skills /> Tech Stack & Capabilities
+        </h2>
         <div className="skill-groups">
           {Object.entries(skillGroups).map(([group, items]) => (
             <div key={group}>
@@ -320,16 +487,24 @@ function App() {
       </section>
 
       <section className="card" id="experience">
-        <h2>Career Journey</h2>
+        <h2 className="with-icon">
+          <sectionIcons.experience /> Career Journey
+        </h2>
+        <img className="career-banner" src="/career-path.svg" alt="Career progression visual" />
         <div className="timeline">
           {experience.map((job) => (
             <article className="timeline-item" key={`${job.role}-${job.company}`}>
-              <h3>
-                {job.role} <span>@ {job.company}</span>
-              </h3>
-              <p className="meta period">{job.period}</p>
+              <div className="timeline-top">
+                <img className="company-logo" src={job.logo} alt={`${job.company} logo mark`} />
+                <div>
+                  <h3>
+                    {job.role} <span>@ {job.company}</span>
+                  </h3>
+                  <p className="meta period">{job.period}</p>
+                </div>
+              </div>
               <ul className="highlights">
-                {job.highlights.slice(0, 3).map((point) => (
+                {job.highlights.slice(0, 2).map((point) => (
                   <li key={point}>{point}</li>
                 ))}
               </ul>
@@ -339,7 +514,10 @@ function App() {
       </section>
 
       <section className="card" id="projects">
-        <h2>Selected Case Studies</h2>
+        <h2 className="with-icon">
+          <sectionIcons.projects /> Selected Case Studies
+        </h2>
+        <img className="projects-banner" src="/case-study-art.svg" alt="Case studies visual banner" />
         <div className="project-grid">
           {featuredProjects.map((project) => (
             <article className="project-card" key={project.name}>
@@ -352,40 +530,60 @@ function App() {
         </div>
       </section>
 
-      <section className="card two-col">
-        <div>
-          <h2>Education</h2>
-          <ul className="plain-list">
-            <li>
-              <strong>Information Science and Engineering</strong>
-              <p>Vemana Institute of Technologies • 2017</p>
-            </li>
-            <li>
-              <strong>Intermediate in Science</strong>
-              <p>Orchid Public Higher Secondary School • 2012</p>
-            </li>
-            <li>
-              <strong>SSLC</strong>
-              <p>Everest English Boarding School • 2010</p>
-            </li>
-          </ul>
+      <section className="card education-section" id="education">
+        <h2 className="with-icon">
+          <sectionIcons.education /> Education
+        </h2>
+        <div className="edu-header-row">
+          <p className="panel-note">Academic Foundation</p>
+          <p className="edu-count">3 Milestones</p>
         </div>
-        <div>
-          <h2>Certifications</h2>
-          <ul className="plain-list">
-            {certifications.map((item) => (
-              <li key={item}>{item}</li>
-            ))}
-          </ul>
-          <h2 className="section-gap">Languages & Interests</h2>
-          <p>English, Hindi</p>
-          <p>Kick Boxing • Music • Science Fiction</p>
-        </div>
+        <ul className="edu-list">
+          {education.map((item) => (
+            <li className="edu-item" key={item.title}>
+              <div className="edu-top">
+                <strong className="edu-degree">{item.title}</strong>
+                <span className="edu-year">{item.year}</span>
+              </div>
+              <p className="edu-school">{item.school}</p>
+              <p className="edu-desc">{item.description}</p>
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      <section className="card certification-section" id="certifications">
+        <h2 className="with-icon">
+          <sectionIcons.certifications /> Certifications
+        </h2>
+        <p className="panel-note">Professional learning and verified credentials</p>
+        <ul className="cert-list">
+          {certifications.map((item) => (
+            <li key={item.title} className="cert-item">
+              <img src={item.logo} alt={`${item.provider} logo`} className="cert-logo" />
+              <div>
+                <p className="cert-title">{item.title}</p>
+                <p className="cert-provider">{item.provider}</p>
+                <a className="cert-link" href={item.link} target="_blank" rel="noreferrer">
+                  View Certificate
+                </a>
+              </div>
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      <section className="card edu-meta">
+        <p className="edu-meta-title">Languages & Interests</p>
+        <p>English, Hindi • Kick Boxing • Music • Science Fiction</p>
       </section>
 
       <section className="footer-note" id="contact">
         <div className="cta-card">
-          <h2>Let&apos;s build something impactful</h2>
+          <img className="contact-illustration" src="/contact-illustration.svg" alt="Contact illustration" />
+          <h2 className="with-icon cta-title">
+            <sectionIcons.contact /> Let&apos;s build something impactful
+          </h2>
           <p>
             Open to tech leadership and senior full-stack roles focused on scalable product engineering, platform
             modernization, and high-impact delivery.
