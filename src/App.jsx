@@ -214,7 +214,6 @@ function App() {
         <a className="brand" href="#about">
           BJ
         </a>
-        <p className="hud-label">JARVIS NAV</p>
         <div className="nav-links">
           {navLinks.map((link) => (
             <a

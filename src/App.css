@@ -115,15 +115,6 @@
   box-shadow: 0 0 0 2px rgba(255, 122, 45, 0.24), 0 0 18px rgba(255, 122, 45, 0.36);
 }
 
-.hud-label {
-  margin: 1px 0 3px;
-  font-size: 0.62rem;
-  letter-spacing: 0.14em;
-  font-weight: 700;
-  color: var(--hud-cyan);
-  opacity: 0.9;
-}
-
 .nav-links {
   display: grid;
   gap: 8px;
@@ -959,7 +950,6 @@ h3 span {
 
   .top-nav::before,
   .top-nav::after,
-  .hud-label,
   .nav-links a .nav-label {
     display: none;
   }
